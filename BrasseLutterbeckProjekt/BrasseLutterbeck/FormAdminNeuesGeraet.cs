@@ -1,0 +1,209 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.OleDb;
+using Microsoft.Win32;
+
+namespace BrasseLutterbeck
+{
+    public partial class FormAdminNeuesGeraet : Form
+    {
+        OleDbConnection Con;
+        public string MAID, FIID;
+        public FormAdminNeuesGeraet()
+        {
+            InitializeComponent();
+            
+        }
+        public FormAdminNeuesGeraet(OleDbConnection con, string maID, string fiID)
+        {
+            InitializeComponent();
+            Con = con;
+            MAID = maID;
+            FIID = fiID;
+            Start();
+        }
+
+        public void Start()
+        {
+            string queryAnzeigen = "SELECT ma.MITARBEITERID, ma.MVORNAME, ma.MNACHNAME FROM  MITARBEITER ma WHERE ma.MFIRMAID ='" + FIID + "';";
+            try
+            {
+                Con.Open();
+                DataTable dtAnzeigen = new DataTable();
+                OleDbDataAdapter daAnzeigen = new OleDbDataAdapter(queryAnzeigen, Con);
+                Con.Close();
+                daAnzeigen.Fill(dtAnzeigen);
+                if (dtAnzeigen.Rows.Count != 0)
+                {
+                    for (int i = 0; i < dtAnzeigen.Rows.Count; i++)
+                    {
+                        string item = dtAnzeigen.Rows[i]["MITARBEITERID"].ToString();
+                        
+                        comboBoxMitarbeiterID.Items.Add(item);
+                    }
+                }
+                comboBoxMitarbeiterID.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+        public void DataGridViewFuellen(string MitarbeiterID)
+        {
+            string queryAnzeigen = "SELECT  ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM  MITARBEITER ma, GERAETE ge WHERE ma.MFIRMAID ='" + FIID + "' AND ma.MITARBEITERID ='" + MitarbeiterID + "';";
+            
+            try
+            {
+                Con.Open();
+                DataTable dtAnzeigen = new DataTable();
+                OleDbDataAdapter daAnzeigen = new OleDbDataAdapter(queryAnzeigen, Con);
+                daAnzeigen.Fill(dtAnzeigen);
+                BindingSource bscAnzeigen = new BindingSource()
+                {
+                    DataSource = dtAnzeigen
+                };
+                dataGridViewGeraete.DataSource = bscAnzeigen;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+        private void comboBoxMitarbeiterID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Mitarbeiter = comboBoxMitarbeiterID.SelectedItem.ToString();
+            DataGridViewFuellen(Mitarbeiter);
+            textBoxBezeichnung.Enabled = true;
+            comboBoxArt.Enabled = true;
+            try
+            {
+                if (Con != null)
+                {
+                    Con.Open();
+                }
+                
+                string queryKataloge = "SELECT ga.* FROM GERAETART ga ";
+                DataTable dtKataloge = new DataTable();
+                OleDbDataAdapter daKataloge = new OleDbDataAdapter(queryKataloge, Con);
+                
+                daKataloge.Fill(dtKataloge);
+                
+                if (dtKataloge.Rows.Count != 0)
+                {
+                    
+                    foreach (DataRow row in dtKataloge.Rows)
+                    {
+                        if (row["ga.GERAETEART"] != null || (!row["ga.GERAETEART"].Equals("")))
+                        {
+                            comboBoxArt.Items.Add(row["ga.GERAETEART"]);
+                        }
+                    }
+                    
+                }
+
+                queryKataloge = "SELECT sp.* FROM SPEICHER sp ";
+                dtKataloge = new DataTable();
+                daKataloge = new OleDbDataAdapter(queryKataloge, Con);
+                daKataloge.Fill(dtKataloge);
+
+                if (dtKataloge.Rows.Count != 0)
+                {
+                    
+                    foreach (DataRow row in dtKataloge.Rows)
+                    {
+                        if (row["GROESSE"] != null || (!row["GROESSE"].Equals("")))
+                        {
+                            comboBoxHDD.Items.Add(row["GROESSE"]);
+                            comboBoxArbeitsspeicher.Items.Add(row["GROESSE"]);
+                        }
+                    }
+                }
+                
+                queryKataloge = "SELECT pr.* FROM PROZESSOREN pr ";
+                dtKataloge = new DataTable();
+                daKataloge = new OleDbDataAdapter(queryKataloge, Con);
+                daKataloge.Fill(dtKataloge);
+                
+                if (dtKataloge.Rows.Count != 0)
+                {
+                    foreach (DataRow row in dtKataloge.Rows)
+                    {
+                        if (row["PROZESSORBEZEICHNUNG"] != null || (!row["PROZESSORBEZEICHNUNG"].Equals("")))
+                        {
+                            comboBoxProzessor.Items.Add(row["PROZESSORBEZEICHNUNG"]);
+                        }
+                    }
+                }
+                queryKataloge = "SELECT gr.* FROM GRAFIK gr ";
+                dtKataloge = new DataTable();
+                daKataloge = new OleDbDataAdapter(queryKataloge, Con);
+                daKataloge.Fill(dtKataloge);
+                if (dtKataloge.Rows.Count != 0)
+                {
+                    foreach (DataRow row in dtKataloge.Rows)
+                    {
+                        if (row["GRAFIKBEZEICHNUNG"] != null || (!row["GRAFIKBEZEICHNUNG"].Equals("")))
+                        {
+                            comboBoxGrafik.Items.Add(row["GRAFIKBEZEICHNUNG"]);
+                        }
+                    }
+                }
+                //queryKataloge = "SELECT be.* FROM BETRIEBSSYSTEME gr ";
+                //dtKataloge = new DataTable();
+                //daKataloge = new OleDbDataAdapter(queryKataloge, Con);
+                //daKataloge.Fill(dtKataloge);
+                //if (dtKataloge.Rows.Count != 0)
+                //{
+
+                //    foreach (DataRow row in dtKataloge.Rows)
+                //    {
+                //        if (row["BETRIEBSSYSTEM"] != null || (!row["BETRIEBSSYSTEM"].Equals("")))
+                //        {
+                //            comboBoxbetriebssystemPC.Items.Add(row["BETRIEBSSYSTEM"]);
+                //            comboBoxBetriebssystemMobil.Items.Add(row["BETRIEBSSYSTEM"]);
+                //        }
+                //    }
+
+                //}
+                    
+                panelArt.Enabled = true;
+                comboBoxArt.SelectedIndex = 0;
+                comboBoxArbeitsspeicher.SelectedIndex = 0;
+                comboBoxHDD.SelectedIndex = 0;
+                comboBoxProzessor.SelectedIndex = 0;
+                comboBoxGrafik.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);    
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+        private void comboBoxArt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+    }
+}

@@ -1,0 +1,16 @@
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\bin\x86\x86\BrasseLutterbeck.exe.config
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\bin\x86\x86\BrasseLutterbeck.exe
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormAdminEinstellungen.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormAdminGeraeteuebersicht.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormAdminMitarbeiteruebersicht.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormAdminNeuerMitarbeiter.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormAdminNeuesGeraet.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormAdminTicketuebersicht.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormClientEinstellungen.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormClientTicketuebersicht.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormClientGeraeteuebersicht.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormLogin.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.FormClientNeuesTicket.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.Properties.Resources.resources
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.csproj.GenerateResource.Cache
+H:\ProjektOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\x86\x86\BrasseLutterbeck.exe
