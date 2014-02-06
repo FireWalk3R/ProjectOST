@@ -31,7 +31,8 @@ namespace BrasseLutterbeck
         }
         public void Start()
         {
-            string queryAnzeigen = "SELECT ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM MITARBEITER ma, GERAETE ge WHERE ma.MFIRMAID='" + FIID + "';";
+            string queryAnzeigen = "SELECT ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM MITARBEITER ma, GERAETE ge, MITARBEITERGERAETE mg WHERE ma.MFIRMAID='" + FIID + 
+                "' AND ma.MITARBEITERID = mg.MGMITARBEITERID AND mg.MGGERAETEID = ge.GERAETEID; ";
             try
             {
                 Con.Open();

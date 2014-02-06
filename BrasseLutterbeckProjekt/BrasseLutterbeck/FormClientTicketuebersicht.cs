@@ -27,17 +27,17 @@ namespace BrasseLutterbeck
             Con = con;
             MAID = maID;
             FIID = fiID;
-            buttonAnzeigen_Click(this,new EventArgs());
+            buttonAnzeigen_Click(this, new EventArgs());
         }
 
         private void buttonAnzeigen_Click(object sender, EventArgs e)
         {
             string VonDat = dateTimePickerVon.Text.ToString();
             string BisDat = dateTimePickerBis.Text.ToString();
-            string queryAnzeigen = "SELECT ti.TICKETID, ti.PRIORITAET, ti.TICKETSTATUS as STATUS, ti.BETREFFKATEGORIE as KATEGORIE, ma.MVORNAME as VORNAME," +
+            string queryAnzeigen = "SELECT ti.TICKETID, ti.PRIORITAET, ti.TICKETSTATUS as STATUS, ti.BETREFFKATEGORIE as KATEGORIE, ti.BETREFFZEILE as BETREFF, ma.MVORNAME as VORNAME," +
             "ma.MNACHNAME as NACHNAME, ti.ERSTELLDATUM FROM TICKET ti, MITARBEITER ma " +
             "WHERE ti.MITARBEITERID = '" + MAID + "' AND ti.FIRMAID ='" + FIID + "' AND ti.MITARBEITERID = ma.MITARBEITERID;";
-            
+
             try
             {
                 Con.Open();
@@ -49,7 +49,6 @@ namespace BrasseLutterbeck
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
@@ -57,8 +56,10 @@ namespace BrasseLutterbeck
                 Con.Close();
             }
         }
+
         private void dataGridViewTickets_SelectionChanged(object sender, EventArgs e)
         {
+            ResizeColumns();
             if (dataGridViewTickets.SelectedCells.Count > 0)
             {
                 buttonGespraechsuebersicht.Enabled = true;
@@ -67,11 +68,12 @@ namespace BrasseLutterbeck
                 selectedTicketID = Convert.ToString(selectedRow.Cells[0].Value);
             }
         }
-         
+
         private void buttonGespraechsuebersicht_Click(object sender, EventArgs e)
         {
 
         }
+
         private void übersichtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Con != null)
@@ -114,6 +116,14 @@ namespace BrasseLutterbeck
 
             FormClientEinstellungen fCE = new FormClientEinstellungen(Con, MAID, FIID);
             fCE.Show();
+        }
+
+        private void ResizeColumns()
+        {
+            for (int i = 0; i < dataGridViewTickets.ColumnCount - 1; i++)
+            {
+                dataGridViewTickets.Columns[i].Width = dataGridViewTickets.Width / 8;
+            }
         }
     }
 }

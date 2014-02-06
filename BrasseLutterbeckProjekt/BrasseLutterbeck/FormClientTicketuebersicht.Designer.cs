@@ -241,6 +241,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormClientTicketuebersicht";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "IT-Support Client";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);

@@ -42,7 +42,7 @@ namespace BrasseLutterbeck
                  textBoxFirmaID.Text != "" && textBoxMitarbeiterID.Text != "" && textBoxKennwort.Text != "" &&
                  textBoxFirmaID.Text.StartsWith("FA") && textBoxMitarbeiterID.Text.StartsWith("MA"))
             {
-                Con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Thorsten\Desktop\itv.accdb");
+                Con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\user\Desktop\itv.accdb");
 
                 try
                 {

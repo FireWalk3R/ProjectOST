@@ -22,6 +22,30 @@ namespace BrasseLutterbeck
             Con = con;
             MAID = maID;
             FIID = fiID;
+            Start();
+        }
+        public void Start()
+        {
+            string queryAnzeigen = "SELECT ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM MITARBEITER ma, MITARBEITERGERAETE mg, GERAETE ge WHERE ma.MFIRMAID='" + FIID + "' AND ma.MITARBEITERID ='" + MAID + "' AND mg.MGMITARBEITERID = ma.MITARBEITERID AND mg.MGGERAETEID = ge.GERAETEID ;";
+            try
+            {
+                Con.Open();
+
+                DataTable dtAnzeigen = new DataTable();
+                OleDbDataAdapter daAnzeigen = new OleDbDataAdapter(queryAnzeigen, Con);
+
+                daAnzeigen.Fill(dtAnzeigen);
+
+                dataGridViewGeraete.DataSource = dtAnzeigen;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
     }
 }
