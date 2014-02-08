@@ -231,5 +231,13 @@ namespace BrasseLutterbeck
             FormAdminEinstellungen fAE = new FormAdminEinstellungen(Con, MAID, FIID);
             fAE.Show();
         }
+
+        private void textBoxTicketSuchen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSuchen_Click(this, e);
+            }
+        }
     }
 }

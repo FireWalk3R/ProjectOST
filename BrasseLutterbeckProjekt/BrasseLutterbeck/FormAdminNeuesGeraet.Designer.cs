@@ -191,7 +191,7 @@
             this.buttonHinzufuegen.Location = new System.Drawing.Point(693, 523);
             this.buttonHinzufuegen.Name = "buttonHinzufuegen";
             this.buttonHinzufuegen.Size = new System.Drawing.Size(153, 46);
-            this.buttonHinzufuegen.TabIndex = 51;
+            this.buttonHinzufuegen.TabIndex = 11;
             this.buttonHinzufuegen.Text = "Hinzufügen";
             this.buttonHinzufuegen.UseVisualStyleBackColor = false;
             // 
@@ -210,12 +210,14 @@
             // 
             // comboBoxArt
             // 
+            this.comboBoxArt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxArt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxArt.FormattingEnabled = true;
             this.comboBoxArt.Location = new System.Drawing.Point(477, 7);
             this.comboBoxArt.MaxDropDownItems = 3;
             this.comboBoxArt.Name = "comboBoxArt";
             this.comboBoxArt.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxArt.TabIndex = 27;
+            this.comboBoxArt.TabIndex = 3;
             this.comboBoxArt.SelectedIndexChanged += new System.EventHandler(this.comboBoxArt_SelectedIndexChanged);
             // 
             // textBoxBezeichnung
@@ -223,7 +225,7 @@
             this.textBoxBezeichnung.Location = new System.Drawing.Point(116, 6);
             this.textBoxBezeichnung.Name = "textBoxBezeichnung";
             this.textBoxBezeichnung.Size = new System.Drawing.Size(217, 20);
-            this.textBoxBezeichnung.TabIndex = 25;
+            this.textBoxBezeichnung.TabIndex = 2;
             // 
             // label5
             // 
@@ -267,11 +269,13 @@
             // 
             // comboBoxMitarbeiterID
             // 
+            this.comboBoxMitarbeiterID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMitarbeiterID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxMitarbeiterID.FormattingEnabled = true;
             this.comboBoxMitarbeiterID.Location = new System.Drawing.Point(129, 108);
             this.comboBoxMitarbeiterID.Name = "comboBoxMitarbeiterID";
             this.comboBoxMitarbeiterID.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxMitarbeiterID.TabIndex = 31;
+            this.comboBoxMitarbeiterID.TabIndex = 1;
             this.comboBoxMitarbeiterID.SelectedIndexChanged += new System.EventHandler(this.comboBoxMitarbeiterID_SelectedIndexChanged);
             // 
             // panelPC
@@ -297,42 +301,46 @@
             // 
             // comboBoxGrafik
             // 
+            this.comboBoxGrafik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxGrafik.FormattingEnabled = true;
             this.comboBoxGrafik.Location = new System.Drawing.Point(116, 153);
             this.comboBoxGrafik.Name = "comboBoxGrafik";
             this.comboBoxGrafik.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxGrafik.TabIndex = 35;
+            this.comboBoxGrafik.TabIndex = 9;
             // 
             // comboBoxArbeitsspeicher
             // 
+            this.comboBoxArbeitsspeicher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxArbeitsspeicher.FormattingEnabled = true;
             this.comboBoxArbeitsspeicher.Location = new System.Drawing.Point(116, 39);
             this.comboBoxArbeitsspeicher.Name = "comboBoxArbeitsspeicher";
             this.comboBoxArbeitsspeicher.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxArbeitsspeicher.TabIndex = 31;
+            this.comboBoxArbeitsspeicher.TabIndex = 5;
             // 
             // comboBoxbetriebssystemPC
             // 
+            this.comboBoxbetriebssystemPC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxbetriebssystemPC.FormattingEnabled = true;
             this.comboBoxbetriebssystemPC.Location = new System.Drawing.Point(116, 4);
             this.comboBoxbetriebssystemPC.Name = "comboBoxbetriebssystemPC";
             this.comboBoxbetriebssystemPC.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxbetriebssystemPC.TabIndex = 30;
+            this.comboBoxbetriebssystemPC.TabIndex = 4;
             // 
             // comboBoxHDD
             // 
+            this.comboBoxHDD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxHDD.FormattingEnabled = true;
             this.comboBoxHDD.Location = new System.Drawing.Point(116, 192);
             this.comboBoxHDD.Name = "comboBoxHDD";
             this.comboBoxHDD.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxHDD.TabIndex = 34;
+            this.comboBoxHDD.TabIndex = 10;
             // 
             // textBoxSeriennummerPC
             // 
             this.textBoxSeriennummerPC.Location = new System.Drawing.Point(116, 116);
             this.textBoxSeriennummerPC.Name = "textBoxSeriennummerPC";
             this.textBoxSeriennummerPC.Size = new System.Drawing.Size(217, 20);
-            this.textBoxSeriennummerPC.TabIndex = 29;
+            this.textBoxSeriennummerPC.TabIndex = 8;
             // 
             // label4
             // 
@@ -366,11 +374,12 @@
             // 
             // comboBoxProzessor
             // 
+            this.comboBoxProzessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxProzessor.FormattingEnabled = true;
             this.comboBoxProzessor.Location = new System.Drawing.Point(116, 78);
             this.comboBoxProzessor.Name = "comboBoxProzessor";
             this.comboBoxProzessor.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxProzessor.TabIndex = 27;
+            this.comboBoxProzessor.TabIndex = 7;
             // 
             // label6
             // 
@@ -421,18 +430,19 @@
             // 
             // comboBoxBetriebssystemMobil
             // 
+            this.comboBoxBetriebssystemMobil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxBetriebssystemMobil.FormattingEnabled = true;
             this.comboBoxBetriebssystemMobil.Location = new System.Drawing.Point(116, 112);
             this.comboBoxBetriebssystemMobil.Name = "comboBoxBetriebssystemMobil";
             this.comboBoxBetriebssystemMobil.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxBetriebssystemMobil.TabIndex = 37;
+            this.comboBoxBetriebssystemMobil.TabIndex = 8;
             // 
             // textBoxKartennummer
             // 
             this.textBoxKartennummer.Location = new System.Drawing.Point(116, 78);
             this.textBoxKartennummer.Name = "textBoxKartennummer";
             this.textBoxKartennummer.Size = new System.Drawing.Size(217, 20);
-            this.textBoxKartennummer.TabIndex = 26;
+            this.textBoxKartennummer.TabIndex = 7;
             // 
             // label15
             // 
@@ -449,14 +459,14 @@
             this.textBoxHandynummer.Location = new System.Drawing.Point(116, 39);
             this.textBoxHandynummer.Name = "textBoxHandynummer";
             this.textBoxHandynummer.Size = new System.Drawing.Size(217, 20);
-            this.textBoxHandynummer.TabIndex = 25;
+            this.textBoxHandynummer.TabIndex = 6;
             // 
             // textBoxSeriennummerMobil
             // 
             this.textBoxSeriennummerMobil.Location = new System.Drawing.Point(116, 3);
             this.textBoxSeriennummerMobil.Name = "textBoxSeriennummerMobil";
             this.textBoxSeriennummerMobil.Size = new System.Drawing.Size(217, 20);
-            this.textBoxSeriennummerMobil.TabIndex = 24;
+            this.textBoxSeriennummerMobil.TabIndex = 4;
             // 
             // label10
             // 
@@ -492,7 +502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 581);
+            this.ClientSize = new System.Drawing.Size(861, 582);
             this.Controls.Add(this.panelMobil);
             this.Controls.Add(this.panelPC);
             this.Controls.Add(this.comboBoxMitarbeiterID);

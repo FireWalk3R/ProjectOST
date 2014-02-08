@@ -16,10 +16,12 @@ namespace BrasseLutterbeck
     {
         OleDbConnection Con;
         string MAID, FIID;
+
         public FormAdminNeuerMitarbeiter()
         {
             InitializeComponent();
         }
+
         public FormAdminNeuerMitarbeiter(OleDbConnection con, string maID, string fiID)
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace BrasseLutterbeck
             FIID = fiID;
             Start();
         }
+
         public void Start()
         {
             try
@@ -36,10 +39,12 @@ namespace BrasseLutterbeck
                 {
                     Con.Open();
                 }
+
                 string queryKataloge = "SELECT * FROM RAEUME ";
                 DataTable dtKataloge = new DataTable();
                 OleDbDataAdapter daKataloge = new OleDbDataAdapter(queryKataloge, Con);
                 daKataloge.Fill(dtKataloge);
+
                 if (dtKataloge.Rows.Count != 0)
                 {
                     foreach (DataRow row in dtKataloge.Rows)
@@ -83,7 +88,6 @@ namespace BrasseLutterbeck
 
         private void buttonHinzufuegen_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (textBoxKennwortNeu1.Text.Equals(textBoxKennwortNeu2.Text))
@@ -96,14 +100,20 @@ namespace BrasseLutterbeck
                         string neuMitarbeiterID = cmdMID.ExecuteScalar().ToString();
                         int MitarbeiterID = Convert.ToInt32(neuMitarbeiterID.Substring(2)) + 1;
 
+                        try
+                        {
+                            string queryRaeume = "INSERT INTO RAEUME (RAUM) VALUES (@RAUM);";
+                            OleDbCommand cmdInsR = new OleDbCommand(queryRaeume, Con);
+                            cmdInsR.Parameters.AddWithValue("@RAUM", comboBoxRaumNr.Text);
 
-                        string queryRaeume = "INSERT INTO RAEUME (RAUM) VALUES (@RAUM);";
-                        OleDbCommand cmdInsR = new OleDbCommand(queryRaeume, Con);
-                        cmdInsR.Parameters.AddWithValue("@RAUM", comboBoxRaumNr.SelectedItem.ToString());
+                            cmdInsR.ExecuteNonQuery();
+                            cmdInsR.Dispose();
+                            cmdInsR = null;
+                        }
+                        catch
+                        {
 
-                        cmdInsR.ExecuteNonQuery();
-                        cmdInsR.Dispose();
-                        cmdInsR = null;
+                        }
 
                         string queryMitarbeiter = "INSERT INTO MITARBEITER (MITARBEITERID,MVORNAME,MNACHNAME,MRAUMNR,MTELNR,MKENNWORT,MFIRMAID,MRANG,MEMAIL) " +
                         "VALUES (@MITARBEITERID,@MVORNAME,@MNACHNAME,@MRAUMNR,@MTELNR,@MKENNWORT,@MFIRMAID,@MRANG,@MEMAIL);";
@@ -111,18 +121,18 @@ namespace BrasseLutterbeck
                         cmdInsM.Parameters.AddWithValue("@MITARBEITERID", "MA" + MitarbeiterID.ToString().PadLeft(8, '0'));
                         cmdInsM.Parameters.AddWithValue("@MVORNAME", textBoxMVName.Text);
                         cmdInsM.Parameters.AddWithValue("@MNACHNAME", textBoxMName.Text);
-                        cmdInsM.Parameters.AddWithValue("@MRAUMNR", comboBoxRaumNr.SelectedItem.ToString());
+                        cmdInsM.Parameters.AddWithValue("@MRAUMNR", comboBoxRaumNr.Text);
                         cmdInsM.Parameters.AddWithValue("@MTELNR", textBoxMTelNr.Text);
                         cmdInsM.Parameters.AddWithValue("@MKENNWORT", textBoxKennwortNeu1.Text);
                         cmdInsM.Parameters.AddWithValue("@MFIRMAID", FIID);
-                        cmdInsM.Parameters.AddWithValue("@MRANG", comboBoxRang.SelectedItem.ToString());
+                        cmdInsM.Parameters.AddWithValue("@MRANG", comboBoxRang.Text);
                         cmdInsM.Parameters.AddWithValue("@MEMAIL", textBoxEmail.Text);
 
 
                         cmdInsM.ExecuteNonQuery();
                         cmdInsM.Dispose();
                         cmdInsM = null;
-                        
+
                         MessageBox.Show("Der Account wurde erfolgreich angelegt:\r\nMitarbeiterID:\t" + "MA" + MitarbeiterID.ToString().PadLeft(8, '0') + "");
 
 
@@ -136,6 +146,7 @@ namespace BrasseLutterbeck
                 {
                     MessageBox.Show("Die eingegebenen Passwörter stimmen nicht überein!");
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -146,11 +157,6 @@ namespace BrasseLutterbeck
             {
                 Con.Close();
             }
-
-
-
-
-
         }
     }
 }

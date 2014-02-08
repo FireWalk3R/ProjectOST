@@ -16,6 +16,7 @@ namespace BrasseLutterbeck
     {
         OleDbConnection Con;
         string MAID, FIID;
+
         public FormClientGeraeteuebersicht(OleDbConnection con, string maID, string fiID)
         {
             InitializeComponent();
@@ -24,9 +25,19 @@ namespace BrasseLutterbeck
             FIID = fiID;
             Start();
         }
+
         public void Start()
         {
-            string queryAnzeigen = "SELECT ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM MITARBEITER ma, MITARBEITERGERAETE mg, GERAETE ge WHERE ma.MFIRMAID='" + FIID + "' AND ma.MITARBEITERID ='" + MAID + "' AND mg.MGMITARBEITERID = ma.MITARBEITERID AND mg.MGGERAETEID = ge.GERAETEID ;";
+            string queryAnzeigen =
+                "SELECT ge.GERAETEID, ma.MVORNAME, ma.MNACHNAME, ge.GERAETEART, ge.BEZEICHNUNG, ge.BETRIEBSSYSTEM, ge.SERIENNUMMER, pr.PROZESSORBEZEICHNUNG, pr.TAKTFREQUENZ, ge.RAM " +
+                "FROM MITARBEITER ma, GERAETE ge, MITARBEITERGERAETE mg, PROZESSOREN pr " +
+                "WHERE ma.MFIRMAID='" + FIID + "' " +
+                "AND ma.MITARBEITERID = mg.MGMITARBEITERID " +
+                "AND mg.MGGERAETEID = ge.GERAETEID " +
+                "AND ge.PROZESSORID = pr.PROZESSORID " +
+                "AND ma.MITARBEITERID = '" + MAID + "'" +
+                ";";
+
             try
             {
                 Con.Open();

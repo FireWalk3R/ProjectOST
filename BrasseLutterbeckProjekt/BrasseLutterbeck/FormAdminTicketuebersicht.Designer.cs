@@ -277,6 +277,7 @@
             this.textBoxTicketSuchen.Name = "textBoxTicketSuchen";
             this.textBoxTicketSuchen.Size = new System.Drawing.Size(293, 20);
             this.textBoxTicketSuchen.TabIndex = 23;
+            this.textBoxTicketSuchen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTicketSuchen_KeyDown);
             // 
             // buttonSuchen
             // 

@@ -44,7 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSuchen = new System.Windows.Forms.Button();
             this.textBoxGeraeteSuchen = new System.Windows.Forms.TextBox();
-            this.buttonSpeichern = new System.Windows.Forms.Button();
+            this.buttonLoeschen = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGeraete)).BeginInit();
             this.SuspendLayout();
@@ -149,8 +149,10 @@
             this.dataGridViewGeraete.GridColor = System.Drawing.Color.LightGray;
             this.dataGridViewGeraete.Location = new System.Drawing.Point(12, 125);
             this.dataGridViewGeraete.Name = "dataGridViewGeraete";
+            this.dataGridViewGeraete.ReadOnly = true;
+            this.dataGridViewGeraete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGeraete.Size = new System.Drawing.Size(834, 255);
-            this.dataGridViewGeraete.TabIndex = 15;
+            this.dataGridViewGeraete.TabIndex = 3;
             // 
             // label1
             // 
@@ -170,36 +172,38 @@
             this.buttonSuchen.Location = new System.Drawing.Point(311, 96);
             this.buttonSuchen.Name = "buttonSuchen";
             this.buttonSuchen.Size = new System.Drawing.Size(107, 25);
-            this.buttonSuchen.TabIndex = 26;
+            this.buttonSuchen.TabIndex = 2;
             this.buttonSuchen.Text = "Suchen";
             this.buttonSuchen.UseVisualStyleBackColor = false;
+            this.buttonSuchen.Click += new System.EventHandler(this.buttonSuchen_Click);
             // 
             // textBoxGeraeteSuchen
             // 
             this.textBoxGeraeteSuchen.Location = new System.Drawing.Point(12, 99);
             this.textBoxGeraeteSuchen.Name = "textBoxGeraeteSuchen";
             this.textBoxGeraeteSuchen.Size = new System.Drawing.Size(293, 20);
-            this.textBoxGeraeteSuchen.TabIndex = 25;
+            this.textBoxGeraeteSuchen.TabIndex = 1;
+            this.textBoxGeraeteSuchen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxGeraeteSuchen_KeyDown);
             // 
-            // buttonSpeichern
+            // buttonLoeschen
             // 
-            this.buttonSpeichern.BackColor = System.Drawing.Color.DarkGray;
-            this.buttonSpeichern.Enabled = false;
-            this.buttonSpeichern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSpeichern.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSpeichern.Location = new System.Drawing.Point(693, 386);
-            this.buttonSpeichern.Name = "buttonSpeichern";
-            this.buttonSpeichern.Size = new System.Drawing.Size(153, 46);
-            this.buttonSpeichern.TabIndex = 46;
-            this.buttonSpeichern.Text = "Speichern";
-            this.buttonSpeichern.UseVisualStyleBackColor = false;
+            this.buttonLoeschen.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonLoeschen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLoeschen.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLoeschen.Location = new System.Drawing.Point(693, 386);
+            this.buttonLoeschen.Name = "buttonLoeschen";
+            this.buttonLoeschen.Size = new System.Drawing.Size(153, 46);
+            this.buttonLoeschen.TabIndex = 4;
+            this.buttonLoeschen.Text = "Löschen";
+            this.buttonLoeschen.UseVisualStyleBackColor = false;
+            this.buttonLoeschen.Click += new System.EventHandler(this.buttonLoeschen_Click);
             // 
             // FormAdminGeraeteuebersicht
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 443);
-            this.Controls.Add(this.buttonSpeichern);
+            this.ClientSize = new System.Drawing.Size(861, 444);
+            this.Controls.Add(this.buttonLoeschen);
             this.Controls.Add(this.buttonSuchen);
             this.Controls.Add(this.textBoxGeraeteSuchen);
             this.Controls.Add(this.label2);
@@ -239,6 +243,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSuchen;
         private System.Windows.Forms.TextBox textBoxGeraeteSuchen;
-        private System.Windows.Forms.Button buttonSpeichern;
+        private System.Windows.Forms.Button buttonLoeschen;
     }
 }

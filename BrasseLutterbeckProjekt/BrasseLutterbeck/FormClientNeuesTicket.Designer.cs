@@ -123,6 +123,8 @@
             // 
             // comboBoxPriorität
             // 
+            this.comboBoxPriorität.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPriorität.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxPriorität.FormattingEnabled = true;
             this.comboBoxPriorität.Location = new System.Drawing.Point(121, 94);
             this.comboBoxPriorität.Name = "comboBoxPriorität";
@@ -138,6 +140,8 @@
             // 
             // comboBoxBetreffArt
             // 
+            this.comboBoxBetreffArt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBetreffArt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxBetreffArt.FormattingEnabled = true;
             this.comboBoxBetreffArt.Location = new System.Drawing.Point(121, 121);
             this.comboBoxBetreffArt.Name = "comboBoxBetreffArt";
@@ -222,7 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 447);
+            this.ClientSize = new System.Drawing.Size(861, 448);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

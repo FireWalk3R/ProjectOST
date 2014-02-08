@@ -58,7 +58,7 @@
             this.buttonSpeichern.Location = new System.Drawing.Point(697, 386);
             this.buttonSpeichern.Name = "buttonSpeichern";
             this.buttonSpeichern.Size = new System.Drawing.Size(153, 46);
-            this.buttonSpeichern.TabIndex = 53;
+            this.buttonSpeichern.TabIndex = 4;
             this.buttonSpeichern.Text = "Speichern";
             this.buttonSpeichern.UseVisualStyleBackColor = false;
             // 
@@ -70,16 +70,18 @@
             this.buttonSuchen.Location = new System.Drawing.Point(315, 96);
             this.buttonSuchen.Name = "buttonSuchen";
             this.buttonSuchen.Size = new System.Drawing.Size(107, 25);
-            this.buttonSuchen.TabIndex = 52;
+            this.buttonSuchen.TabIndex = 2;
             this.buttonSuchen.Text = "Suchen";
             this.buttonSuchen.UseVisualStyleBackColor = false;
+            this.buttonSuchen.Click += new System.EventHandler(this.buttonSuchen_Click);
             // 
             // textBoxGeraeteSuchen
             // 
             this.textBoxGeraeteSuchen.Location = new System.Drawing.Point(16, 99);
             this.textBoxGeraeteSuchen.Name = "textBoxGeraeteSuchen";
             this.textBoxGeraeteSuchen.Size = new System.Drawing.Size(293, 20);
-            this.textBoxGeraeteSuchen.TabIndex = 51;
+            this.textBoxGeraeteSuchen.TabIndex = 1;
+            this.textBoxGeraeteSuchen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxGeraeteSuchen_KeyDown);
             // 
             // label2
             // 
@@ -99,7 +101,7 @@
             this.dataGridViewMitarbeiter.Location = new System.Drawing.Point(16, 125);
             this.dataGridViewMitarbeiter.Name = "dataGridViewMitarbeiter";
             this.dataGridViewMitarbeiter.Size = new System.Drawing.Size(834, 255);
-            this.dataGridViewMitarbeiter.TabIndex = 49;
+            this.dataGridViewMitarbeiter.TabIndex = 3;
             // 
             // label1
             // 
@@ -198,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 440);
+            this.ClientSize = new System.Drawing.Size(861, 441);
             this.Controls.Add(this.buttonSpeichern);
             this.Controls.Add(this.buttonSuchen);
             this.Controls.Add(this.textBoxGeraeteSuchen);

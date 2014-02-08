@@ -110,5 +110,13 @@ namespace BrasseLutterbeck
                 Con.Close();
             }
         }
+
+        private void textBoxKennwort_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonAnmelden_Click(this, e);
+            }
+        }
     }
 }

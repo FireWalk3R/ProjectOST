@@ -16,11 +16,13 @@ namespace BrasseLutterbeck
     {
         OleDbConnection Con;
         public string MAID, FIID;
+
         public FormAdminNeuesGeraet()
         {
             InitializeComponent();
             
         }
+
         public FormAdminNeuesGeraet(OleDbConnection con, string maID, string fiID)
         {
             InitializeComponent();
@@ -63,7 +65,8 @@ namespace BrasseLutterbeck
 
         public void DataGridViewFuellen(string MitarbeiterID)
         {
-            string queryAnzeigen = "SELECT  ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM  MITARBEITER ma, GERAETE ge WHERE ma.MFIRMAID ='" + FIID + "' AND ma.MITARBEITERID ='" + MitarbeiterID + "';";
+            string queryAnzeigen = "SELECT ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM MITARBEITER ma, GERAETE ge, MITARBEITERGERAETE mg WHERE ma.MFIRMAID='" + FIID +
+                "' AND ma.MITARBEITERID = mg.MGMITARBEITERID AND mg.MGGERAETEID = ge.GERAETEID AND ma.MITARBEITERID = '" + comboBoxMitarbeiterID.Text + "';";
             
             try
             {
@@ -71,11 +74,8 @@ namespace BrasseLutterbeck
                 DataTable dtAnzeigen = new DataTable();
                 OleDbDataAdapter daAnzeigen = new OleDbDataAdapter(queryAnzeigen, Con);
                 daAnzeigen.Fill(dtAnzeigen);
-                BindingSource bscAnzeigen = new BindingSource()
-                {
-                    DataSource = dtAnzeigen
-                };
-                dataGridViewGeraete.DataSource = bscAnzeigen;
+
+                dataGridViewGeraete.DataSource = dtAnzeigen;
             }
             catch (Exception ex)
             {
@@ -100,23 +100,21 @@ namespace BrasseLutterbeck
                     Con.Open();
                 }
                 
-                string queryKataloge = "SELECT ga.* FROM GERAETART ga ";
+                string queryKataloge = "SELECT ga.* FROM GERAETEART ga ";
                 DataTable dtKataloge = new DataTable();
                 OleDbDataAdapter daKataloge = new OleDbDataAdapter(queryKataloge, Con);
                 
                 daKataloge.Fill(dtKataloge);
-                
+
                 if (dtKataloge.Rows.Count != 0)
                 {
-                    
                     foreach (DataRow row in dtKataloge.Rows)
                     {
-                        if (row["ga.GERAETEART"] != null || (!row["ga.GERAETEART"].Equals("")))
+                        if (row["GERAETEART"] != null || (!row["GERAETEART"].Equals("")))
                         {
-                            comboBoxArt.Items.Add(row["ga.GERAETEART"]);
+                            comboBoxArt.Items.Add(row["GERAETEART"]);
                         }
                     }
-                    
                 }
 
                 queryKataloge = "SELECT sp.* FROM SPEICHER sp ";
@@ -126,7 +124,6 @@ namespace BrasseLutterbeck
 
                 if (dtKataloge.Rows.Count != 0)
                 {
-                    
                     foreach (DataRow row in dtKataloge.Rows)
                     {
                         if (row["GROESSE"] != null || (!row["GROESSE"].Equals("")))
@@ -166,23 +163,6 @@ namespace BrasseLutterbeck
                         }
                     }
                 }
-                //queryKataloge = "SELECT be.* FROM BETRIEBSSYSTEME gr ";
-                //dtKataloge = new DataTable();
-                //daKataloge = new OleDbDataAdapter(queryKataloge, Con);
-                //daKataloge.Fill(dtKataloge);
-                //if (dtKataloge.Rows.Count != 0)
-                //{
-
-                //    foreach (DataRow row in dtKataloge.Rows)
-                //    {
-                //        if (row["BETRIEBSSYSTEM"] != null || (!row["BETRIEBSSYSTEM"].Equals("")))
-                //        {
-                //            comboBoxbetriebssystemPC.Items.Add(row["BETRIEBSSYSTEM"]);
-                //            comboBoxBetriebssystemMobil.Items.Add(row["BETRIEBSSYSTEM"]);
-                //        }
-                //    }
-
-                //}
                     
                 panelArt.Enabled = true;
                 comboBoxArt.SelectedIndex = 0;

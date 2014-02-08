@@ -46,6 +46,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panelDaten = new System.Windows.Forms.Panel();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.comboBoxRang = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxMFirmaID = new System.Windows.Forms.TextBox();
@@ -158,6 +160,7 @@
             this.buttonSpeichern.TabIndex = 16;
             this.buttonSpeichern.Text = "Speichern";
             this.buttonSpeichern.UseVisualStyleBackColor = false;
+            this.buttonSpeichern.Click += new System.EventHandler(this.buttonSpeichern_Click);
             // 
             // label2
             // 
@@ -193,7 +196,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 207);
+            this.label6.Location = new System.Drawing.Point(21, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 16);
             this.label6.TabIndex = 22;
@@ -203,7 +206,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 171);
+            this.label7.Location = new System.Drawing.Point(21, 186);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(108, 16);
             this.label7.TabIndex = 21;
@@ -213,7 +216,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 134);
+            this.label8.Location = new System.Drawing.Point(21, 149);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 16);
             this.label8.TabIndex = 20;
@@ -222,6 +225,8 @@
             // panelDaten
             // 
             this.panelDaten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDaten.Controls.Add(this.textBoxEmail);
+            this.panelDaten.Controls.Add(this.label13);
             this.panelDaten.Controls.Add(this.comboBoxRang);
             this.panelDaten.Controls.Add(this.label12);
             this.panelDaten.Controls.Add(this.textBoxMFirmaID);
@@ -241,20 +246,39 @@
             this.panelDaten.Size = new System.Drawing.Size(367, 293);
             this.panelDaten.TabIndex = 23;
             // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(135, 113);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(217, 20);
+            this.textBoxEmail.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(21, 117);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 16);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "E-Mail :";
+            // 
             // comboBoxRang
             // 
+            this.comboBoxRang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRang.Enabled = false;
+            this.comboBoxRang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRang.FormattingEnabled = true;
-            this.comboBoxRang.Location = new System.Drawing.Point(135, 244);
+            this.comboBoxRang.Location = new System.Drawing.Point(135, 259);
             this.comboBoxRang.Name = "comboBoxRang";
             this.comboBoxRang.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxRang.TabIndex = 30;
+            this.comboBoxRang.TabIndex = 8;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(21, 245);
+            this.label12.Location = new System.Drawing.Point(21, 260);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 16);
             this.label12.TabIndex = 29;
@@ -263,39 +287,41 @@
             // textBoxMFirmaID
             // 
             this.textBoxMFirmaID.Enabled = false;
-            this.textBoxMFirmaID.Location = new System.Drawing.Point(135, 206);
+            this.textBoxMFirmaID.Location = new System.Drawing.Point(135, 221);
             this.textBoxMFirmaID.Name = "textBoxMFirmaID";
             this.textBoxMFirmaID.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMFirmaID.TabIndex = 28;
+            this.textBoxMFirmaID.TabIndex = 7;
             // 
             // comboBoxRaumNr
             // 
+            this.comboBoxRaumNr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRaumNr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRaumNr.FormattingEnabled = true;
-            this.comboBoxRaumNr.Location = new System.Drawing.Point(135, 133);
+            this.comboBoxRaumNr.Location = new System.Drawing.Point(135, 148);
             this.comboBoxRaumNr.Name = "comboBoxRaumNr";
             this.comboBoxRaumNr.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxRaumNr.TabIndex = 27;
+            this.comboBoxRaumNr.TabIndex = 5;
             // 
             // textBoxMTelNr
             // 
-            this.textBoxMTelNr.Location = new System.Drawing.Point(135, 170);
+            this.textBoxMTelNr.Location = new System.Drawing.Point(135, 185);
             this.textBoxMTelNr.Name = "textBoxMTelNr";
             this.textBoxMTelNr.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMTelNr.TabIndex = 26;
+            this.textBoxMTelNr.TabIndex = 6;
             // 
             // textBoxMName
             // 
             this.textBoxMName.Location = new System.Drawing.Point(135, 81);
             this.textBoxMName.Name = "textBoxMName";
             this.textBoxMName.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMName.TabIndex = 25;
+            this.textBoxMName.TabIndex = 3;
             // 
             // textBoxMVName
             // 
             this.textBoxMVName.Location = new System.Drawing.Point(135, 45);
             this.textBoxMVName.Name = "textBoxMVName";
             this.textBoxMVName.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMVName.TabIndex = 24;
+            this.textBoxMVName.TabIndex = 2;
             // 
             // textBoxMitarbeiterID
             // 
@@ -303,14 +329,15 @@
             this.textBoxMitarbeiterID.Location = new System.Drawing.Point(135, 9);
             this.textBoxMitarbeiterID.Name = "textBoxMitarbeiterID";
             this.textBoxMitarbeiterID.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMitarbeiterID.TabIndex = 23;
+            this.textBoxMitarbeiterID.TabIndex = 1;
             // 
             // textBoxKennwortNeu2
             // 
             this.textBoxKennwortNeu2.Location = new System.Drawing.Point(159, 95);
             this.textBoxKennwortNeu2.Name = "textBoxKennwortNeu2";
+            this.textBoxKennwortNeu2.PasswordChar = '*';
             this.textBoxKennwortNeu2.Size = new System.Drawing.Size(217, 20);
-            this.textBoxKennwortNeu2.TabIndex = 40;
+            this.textBoxKennwortNeu2.TabIndex = 11;
             // 
             // label11
             // 
@@ -326,8 +353,9 @@
             // 
             this.textBoxKennwortNeu1.Location = new System.Drawing.Point(159, 60);
             this.textBoxKennwortNeu1.Name = "textBoxKennwortNeu1";
+            this.textBoxKennwortNeu1.PasswordChar = '*';
             this.textBoxKennwortNeu1.Size = new System.Drawing.Size(217, 20);
-            this.textBoxKennwortNeu1.TabIndex = 38;
+            this.textBoxKennwortNeu1.TabIndex = 10;
             // 
             // label10
             // 
@@ -343,8 +371,9 @@
             // 
             this.textBoxKennwortAlt.Location = new System.Drawing.Point(159, 24);
             this.textBoxKennwortAlt.Name = "textBoxKennwortAlt";
+            this.textBoxKennwortAlt.PasswordChar = '*';
             this.textBoxKennwortAlt.Size = new System.Drawing.Size(217, 20);
-            this.textBoxKennwortAlt.TabIndex = 36;
+            this.textBoxKennwortAlt.TabIndex = 9;
             // 
             // label9
             // 
@@ -374,7 +403,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 391);
+            this.ClientSize = new System.Drawing.Size(861, 392);
             this.Controls.Add(this.panelKennwort);
             this.Controls.Add(this.panelDaten);
             this.Controls.Add(this.buttonSpeichern);
@@ -434,5 +463,7 @@
         private System.Windows.Forms.TextBox textBoxKennwortAlt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panelKennwort;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.Label label13;
     }
 }

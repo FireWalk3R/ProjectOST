@@ -121,6 +121,8 @@
             this.dataGridViewGeraete.GridColor = System.Drawing.Color.LightGray;
             this.dataGridViewGeraete.Location = new System.Drawing.Point(13, 95);
             this.dataGridViewGeraete.Name = "dataGridViewGeraete";
+            this.dataGridViewGeraete.ReadOnly = true;
+            this.dataGridViewGeraete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGeraete.Size = new System.Drawing.Size(834, 255);
             this.dataGridViewGeraete.TabIndex = 8;
             // 
@@ -138,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 371);
+            this.ClientSize = new System.Drawing.Size(861, 372);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewGeraete);
             this.Controls.Add(this.label1);

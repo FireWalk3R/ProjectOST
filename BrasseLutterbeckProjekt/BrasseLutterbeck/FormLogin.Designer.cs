@@ -118,6 +118,7 @@
             this.textBoxKennwort.PasswordChar = '*';
             this.textBoxKennwort.Size = new System.Drawing.Size(159, 20);
             this.textBoxKennwort.TabIndex = 3;
+            this.textBoxKennwort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxKennwort_KeyDown);
             // 
             // textBoxMitarbeiterID
             // 
@@ -140,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 328);
+            this.ClientSize = new System.Drawing.Size(376, 290);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxMitarbeiterID);
             this.Controls.Add(this.textBoxKennwort);

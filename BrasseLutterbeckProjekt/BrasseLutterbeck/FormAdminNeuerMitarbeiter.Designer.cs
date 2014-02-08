@@ -48,6 +48,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxKennwortNeu1 = new System.Windows.Forms.TextBox();
             this.panelDaten = new System.Windows.Forms.Panel();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.comboBoxRang = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxRaumNr = new System.Windows.Forms.ComboBox();
@@ -58,8 +60,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panelKennwort.SuspendLayout();
             this.panelDaten.SuspendLayout();
@@ -73,7 +73,7 @@
             this.buttonHinzufuegen.Location = new System.Drawing.Point(696, 324);
             this.buttonHinzufuegen.Name = "buttonHinzufuegen";
             this.buttonHinzufuegen.Size = new System.Drawing.Size(153, 46);
-            this.buttonHinzufuegen.TabIndex = 59;
+            this.buttonHinzufuegen.TabIndex = 9;
             this.buttonHinzufuegen.Text = "Hinzufügen";
             this.buttonHinzufuegen.UseVisualStyleBackColor = false;
             this.buttonHinzufuegen.Click += new System.EventHandler(this.buttonHinzufuegen_Click);
@@ -199,7 +199,7 @@
             this.textBoxKennwortNeu2.Name = "textBoxKennwortNeu2";
             this.textBoxKennwortNeu2.PasswordChar = '*';
             this.textBoxKennwortNeu2.Size = new System.Drawing.Size(217, 20);
-            this.textBoxKennwortNeu2.TabIndex = 40;
+            this.textBoxKennwortNeu2.TabIndex = 8;
             // 
             // label10
             // 
@@ -227,7 +227,7 @@
             this.textBoxKennwortNeu1.Name = "textBoxKennwortNeu1";
             this.textBoxKennwortNeu1.PasswordChar = '*';
             this.textBoxKennwortNeu1.Size = new System.Drawing.Size(217, 20);
-            this.textBoxKennwortNeu1.TabIndex = 38;
+            this.textBoxKennwortNeu1.TabIndex = 7;
             // 
             // panelDaten
             // 
@@ -249,13 +249,32 @@
             this.panelDaten.Size = new System.Drawing.Size(367, 226);
             this.panelDaten.TabIndex = 60;
             // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(130, 85);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(217, 20);
+            this.textBoxEmail.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 16);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "E-mail :";
+            // 
             // comboBoxRang
             // 
+            this.comboBoxRang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRang.FormattingEnabled = true;
             this.comboBoxRang.Location = new System.Drawing.Point(130, 196);
             this.comboBoxRang.Name = "comboBoxRang";
             this.comboBoxRang.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxRang.TabIndex = 30;
+            this.comboBoxRang.TabIndex = 6;
             // 
             // label12
             // 
@@ -269,32 +288,33 @@
             // 
             // comboBoxRaumNr
             // 
+            this.comboBoxRaumNr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRaumNr.FormattingEnabled = true;
             this.comboBoxRaumNr.Location = new System.Drawing.Point(130, 120);
             this.comboBoxRaumNr.Name = "comboBoxRaumNr";
             this.comboBoxRaumNr.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxRaumNr.TabIndex = 27;
+            this.comboBoxRaumNr.TabIndex = 4;
             // 
             // textBoxMTelNr
             // 
             this.textBoxMTelNr.Location = new System.Drawing.Point(130, 157);
             this.textBoxMTelNr.Name = "textBoxMTelNr";
             this.textBoxMTelNr.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMTelNr.TabIndex = 26;
+            this.textBoxMTelNr.TabIndex = 5;
             // 
             // textBoxMName
             // 
             this.textBoxMName.Location = new System.Drawing.Point(130, 48);
             this.textBoxMName.Name = "textBoxMName";
             this.textBoxMName.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMName.TabIndex = 25;
+            this.textBoxMName.TabIndex = 2;
             // 
             // textBoxMVName
             // 
             this.textBoxMVName.Location = new System.Drawing.Point(130, 12);
             this.textBoxMVName.Name = "textBoxMVName";
             this.textBoxMVName.Size = new System.Drawing.Size(217, 20);
-            this.textBoxMVName.TabIndex = 24;
+            this.textBoxMVName.TabIndex = 1;
             // 
             // label4
             // 
@@ -335,23 +355,6 @@
             this.label8.Size = new System.Drawing.Size(67, 16);
             this.label8.TabIndex = 20;
             this.label8.Text = "RaumNr. :";
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.Location = new System.Drawing.Point(130, 85);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(217, 20);
-            this.textBoxEmail.TabIndex = 32;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 16);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "E-mail :";
             // 
             // FormAdminNeuerMitarbeiter
             // 
