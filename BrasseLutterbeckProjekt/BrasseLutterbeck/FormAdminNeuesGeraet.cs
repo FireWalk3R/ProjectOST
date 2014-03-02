@@ -20,7 +20,7 @@ namespace BrasseLutterbeck
         public FormAdminNeuesGeraet()
         {
             InitializeComponent();
-            
+
         }
 
         public FormAdminNeuesGeraet(OleDbConnection con, string maID, string fiID)
@@ -47,7 +47,7 @@ namespace BrasseLutterbeck
                     for (int i = 0; i < dtAnzeigen.Rows.Count; i++)
                     {
                         string item = dtAnzeigen.Rows[i]["MITARBEITERID"].ToString();
-                        
+
                         comboBoxMitarbeiterID.Items.Add(item);
                     }
                 }
@@ -67,7 +67,7 @@ namespace BrasseLutterbeck
         {
             string queryAnzeigen = "SELECT ma.MVORNAME, ma.MNACHNAME, ge.GERAETEID FROM MITARBEITER ma, GERAETE ge, MITARBEITERGERAETE mg WHERE ma.MFIRMAID='" + FIID +
                 "' AND ma.MITARBEITERID = mg.MGMITARBEITERID AND mg.MGGERAETEID = ge.GERAETEID AND ma.MITARBEITERID = '" + comboBoxMitarbeiterID.Text + "';";
-            
+
             try
             {
                 Con.Open();
@@ -93,17 +93,18 @@ namespace BrasseLutterbeck
             DataGridViewFuellen(Mitarbeiter);
             textBoxBezeichnung.Enabled = true;
             comboBoxArt.Enabled = true;
+            comboBoxArt.Items.Clear();
             try
             {
                 if (Con != null)
                 {
                     Con.Open();
                 }
-                
-                string queryKataloge = "SELECT ga.* FROM GERAETEART ga ";
+
+                string queryKataloge = "SELECT ga.* FROM GERAETART ga ";
                 DataTable dtKataloge = new DataTable();
                 OleDbDataAdapter daKataloge = new OleDbDataAdapter(queryKataloge, Con);
-                
+
                 daKataloge.Fill(dtKataloge);
 
                 if (dtKataloge.Rows.Count != 0)
@@ -133,12 +134,12 @@ namespace BrasseLutterbeck
                         }
                     }
                 }
-                
+
                 queryKataloge = "SELECT pr.* FROM PROZESSOREN pr ";
                 dtKataloge = new DataTable();
                 daKataloge = new OleDbDataAdapter(queryKataloge, Con);
                 daKataloge.Fill(dtKataloge);
-                
+
                 if (dtKataloge.Rows.Count != 0)
                 {
                     foreach (DataRow row in dtKataloge.Rows)
@@ -163,7 +164,7 @@ namespace BrasseLutterbeck
                         }
                     }
                 }
-                    
+
                 panelArt.Enabled = true;
                 comboBoxArt.SelectedIndex = 0;
                 comboBoxArbeitsspeicher.SelectedIndex = 0;
@@ -173,7 +174,7 @@ namespace BrasseLutterbeck
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);    
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -183,7 +184,16 @@ namespace BrasseLutterbeck
 
         private void comboBoxArt_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (comboBoxArt.Text == "PC" || comboBoxArt.Text == "Notebook")
+            {
+                panelPC.Enabled = true;
+                panelMobil.Enabled = false;
+            }
+            else
+            {
+                panelMobil.Enabled = true;
+                panelPC.Enabled = false;
+            }
         }
     }
 }

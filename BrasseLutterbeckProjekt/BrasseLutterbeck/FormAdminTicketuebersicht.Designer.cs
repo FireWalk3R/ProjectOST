@@ -198,6 +198,7 @@
             // 
             this.ticketsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.übersichtToolStripMenuItem});
+            this.ticketsToolStripMenuItem.Enabled = false;
             this.ticketsToolStripMenuItem.Name = "ticketsToolStripMenuItem";
             this.ticketsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.ticketsToolStripMenuItem.Text = "Tickets";
@@ -205,7 +206,7 @@
             // übersichtToolStripMenuItem
             // 
             this.übersichtToolStripMenuItem.Name = "übersichtToolStripMenuItem";
-            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.übersichtToolStripMenuItem.Text = "Übersicht";
             this.übersichtToolStripMenuItem.Click += new System.EventHandler(this.übersichtToolStripMenuItem_Click);
             // 

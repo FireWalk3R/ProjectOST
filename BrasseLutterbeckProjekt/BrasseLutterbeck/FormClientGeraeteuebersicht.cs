@@ -31,12 +31,11 @@ namespace BrasseLutterbeck
             string queryAnzeigen =
                 "SELECT ge.GERAETEID, ma.MVORNAME, ma.MNACHNAME, ge.GERAETEART, ge.BEZEICHNUNG, ge.BETRIEBSSYSTEM, ge.SERIENNUMMER, pr.PROZESSORBEZEICHNUNG, pr.TAKTFREQUENZ, ge.RAM " +
                 "FROM MITARBEITER ma, GERAETE ge, MITARBEITERGERAETE mg, PROZESSOREN pr " +
-                "WHERE ma.MFIRMAID='" + FIID + "' " +
-                "AND ma.MITARBEITERID = mg.MGMITARBEITERID " +
-                "AND mg.MGGERAETEID = ge.GERAETEID " +
+                "WHERE ge.GERAETEID = mg.MGGERAETEID " +
+                "AND mg.MGMITARBEITERID = ma.MITARBEITERID " +
                 "AND ge.PROZESSORID = pr.PROZESSORID " +
-                "AND ma.MITARBEITERID = '" + MAID + "'" +
-                ";";
+                "AND ma.MITARBEITERID = '" + MAID + "' " +
+                "AND ma.MFIRMAID = '" + FIID + "';";
 
             try
             {

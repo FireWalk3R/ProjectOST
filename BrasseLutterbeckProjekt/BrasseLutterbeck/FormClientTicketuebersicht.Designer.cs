@@ -72,15 +72,16 @@
             // 
             // übersichtToolStripMenuItem
             // 
+            this.übersichtToolStripMenuItem.Enabled = false;
             this.übersichtToolStripMenuItem.Name = "übersichtToolStripMenuItem";
-            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.übersichtToolStripMenuItem.Text = "Übersicht";
             this.übersichtToolStripMenuItem.Click += new System.EventHandler(this.übersichtToolStripMenuItem_Click);
             // 
             // neuesTicketToolStripMenuItem
             // 
             this.neuesTicketToolStripMenuItem.Name = "neuesTicketToolStripMenuItem";
-            this.neuesTicketToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.neuesTicketToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.neuesTicketToolStripMenuItem.Text = "Neues Ticket";
             this.neuesTicketToolStripMenuItem.Click += new System.EventHandler(this.neuesTicketToolStripMenuItem_Click);
             // 

@@ -129,14 +129,14 @@
             this.comboBoxPriorität.Location = new System.Drawing.Point(121, 94);
             this.comboBoxPriorität.Name = "comboBoxPriorität";
             this.comboBoxPriorität.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxPriorität.TabIndex = 3;
+            this.comboBoxPriorität.TabIndex = 1;
             // 
             // textBoxBetreffzeile
             // 
             this.textBoxBetreffzeile.Location = new System.Drawing.Point(121, 149);
             this.textBoxBetreffzeile.Name = "textBoxBetreffzeile";
             this.textBoxBetreffzeile.Size = new System.Drawing.Size(245, 20);
-            this.textBoxBetreffzeile.TabIndex = 4;
+            this.textBoxBetreffzeile.TabIndex = 3;
             // 
             // comboBoxBetreffArt
             // 
@@ -146,14 +146,14 @@
             this.comboBoxBetreffArt.Location = new System.Drawing.Point(121, 121);
             this.comboBoxBetreffArt.Name = "comboBoxBetreffArt";
             this.comboBoxBetreffArt.Size = new System.Drawing.Size(245, 21);
-            this.comboBoxBetreffArt.TabIndex = 5;
+            this.comboBoxBetreffArt.TabIndex = 2;
             // 
             // richTextBoxTicketNachricht
             // 
             this.richTextBoxTicketNachricht.Location = new System.Drawing.Point(12, 173);
             this.richTextBoxTicketNachricht.Name = "richTextBoxTicketNachricht";
             this.richTextBoxTicketNachricht.Size = new System.Drawing.Size(837, 180);
-            this.richTextBoxTicketNachricht.TabIndex = 6;
+            this.richTextBoxTicketNachricht.TabIndex = 4;
             this.richTextBoxTicketNachricht.Text = "";
             // 
             // buttonTicketErstellen
@@ -164,7 +164,7 @@
             this.buttonTicketErstellen.Location = new System.Drawing.Point(696, 385);
             this.buttonTicketErstellen.Name = "buttonTicketErstellen";
             this.buttonTicketErstellen.Size = new System.Drawing.Size(153, 46);
-            this.buttonTicketErstellen.TabIndex = 7;
+            this.buttonTicketErstellen.TabIndex = 5;
             this.buttonTicketErstellen.Text = "Ticket eröffnen";
             this.buttonTicketErstellen.UseVisualStyleBackColor = false;
             this.buttonTicketErstellen.Click += new System.EventHandler(this.buttonTicketErstellen_Click);
@@ -226,7 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 448);
+            this.ClientSize = new System.Drawing.Size(861, 447);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

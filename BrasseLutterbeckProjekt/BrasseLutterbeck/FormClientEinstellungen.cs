@@ -28,10 +28,9 @@ namespace BrasseLutterbeck
 
         public void Start()
         {
-
-
             try
             {
+                OleDbCommand cmd;
                 string queryAnzeigen = "SELECT * FROM  MITARBEITER ma WHERE ma.MFIRMAID ='" + FIID + "' AND ma.MITARBEITERID ='" + MAID + "';";
 
                 Con.Open();
@@ -48,6 +47,7 @@ namespace BrasseLutterbeck
                 textBoxMTelNr.Text = dtAnzeigen.Rows[0]["MTELNR"].ToString();
                 textBoxEmail.Text = dtAnzeigen.Rows[0]["MEMAIL"].ToString();
                 Passwort = dtAnzeigen.Rows[0]["MKENNWORT"].ToString();
+                comboBoxRang.Items.Add(dtAnzeigen.Rows[0]["MRANG"].ToString());
 
                 string queryKataloge = "SELECT * FROM RAEUME ";
                 DataTable dtKataloge = new DataTable();
@@ -61,32 +61,18 @@ namespace BrasseLutterbeck
                         if (row["RAUM"] != null || (!row["RAUM"].Equals("")))
                         {
                             comboBoxRaumNr.Items.Add(row["RAUM"]);
-
                         }
                     }
                 }
 
-                queryKataloge = "SELECT * FROM RAENGE ";
-                dtKataloge = new DataTable();
-                daKataloge = new OleDbDataAdapter(queryKataloge, Con);
-                daKataloge.Fill(dtKataloge);
-
-                if (dtKataloge.Rows.Count != 0)
-                {
-                    foreach (DataRow row in dtKataloge.Rows)
-                    {
-                        if (row["RANG"] != null || (!row["RANG"].Equals("")))
-                        {
-                            comboBoxRang.Items.Add(row["RANG"]);
-                        }
-                    }
-                }
+                queryAnzeigen = "SELECT MRAUMNR FROM MITARBEITER WHERE MITARBEITERID = '" + MAID + "';";
+                cmd = new OleDbCommand(queryAnzeigen, Con);
+                
+                comboBoxRaumNr.SelectedItem = cmd.ExecuteScalar();
                 comboBoxRang.SelectedIndex = 0;
-                comboBoxRaumNr.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
@@ -99,9 +85,7 @@ namespace BrasseLutterbeck
         {
             try
             {
-
                 Con.Open();
-
 
                 if (textBoxKennwortAlt.Text != null && textBoxKennwortNeu1.Text != null && textBoxKennwortNeu2.Text != null && textBoxKennwortAlt.Text != "" && textBoxKennwortNeu1.Text != "" && textBoxKennwortNeu2.Text != "")
                 {
@@ -132,14 +116,11 @@ namespace BrasseLutterbeck
                 }
                 else
                 {
-
                     EinstellungenAendern();
-
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
@@ -165,8 +146,6 @@ namespace BrasseLutterbeck
 
             }
 
-
-
             string queryMitarbeiter = "UPDATE MITARBEITER SET MVORNAME=@MVORNAME,MNACHNAME=@MNACHNAME,MRAUMNR=@MRAUMNR,MTELNR=@MTELNR,MKENNWORT=@MKENNWORT,MRANG=@MRANG,MEMAIL=@MEMAIL WHERE MITARBEITERID ='" + MAID + "'";
             OleDbCommand cmdInsM = new OleDbCommand(queryMitarbeiter, Con);
             cmdInsM.Parameters.AddWithValue("@MVORNAME", textBoxMVName.Text);
@@ -177,20 +156,13 @@ namespace BrasseLutterbeck
             cmdInsM.Parameters.AddWithValue("@MRANG", comboBoxRang.Text);
             cmdInsM.Parameters.AddWithValue("@MEMAIL", textBoxEmail.Text);
 
-
             cmdInsM.ExecuteNonQuery();
             cmdInsM.Dispose();
             cmdInsM = null;
 
             MessageBox.Show("Der Account wurde erfolgreich bearbeitet!");
 
-
-
             this.Close();
         }
-
-
     }
-
-
 }

@@ -217,7 +217,7 @@
             this.comboBoxArt.MaxDropDownItems = 3;
             this.comboBoxArt.Name = "comboBoxArt";
             this.comboBoxArt.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxArt.TabIndex = 3;
+            this.comboBoxArt.TabIndex = 4;
             this.comboBoxArt.SelectedIndexChanged += new System.EventHandler(this.comboBoxArt_SelectedIndexChanged);
             // 
             // textBoxBezeichnung
@@ -225,7 +225,7 @@
             this.textBoxBezeichnung.Location = new System.Drawing.Point(116, 6);
             this.textBoxBezeichnung.Name = "textBoxBezeichnung";
             this.textBoxBezeichnung.Size = new System.Drawing.Size(217, 20);
-            this.textBoxBezeichnung.TabIndex = 2;
+            this.textBoxBezeichnung.TabIndex = 3;
             // 
             // label5
             // 
@@ -265,7 +265,7 @@
             this.dataGridViewGeraete.Location = new System.Drawing.Point(12, 138);
             this.dataGridViewGeraete.Name = "dataGridViewGeraete";
             this.dataGridViewGeraete.Size = new System.Drawing.Size(834, 157);
-            this.dataGridViewGeraete.TabIndex = 53;
+            this.dataGridViewGeraete.TabIndex = 2;
             // 
             // comboBoxMitarbeiterID
             // 
@@ -315,7 +315,7 @@
             this.comboBoxArbeitsspeicher.Location = new System.Drawing.Point(116, 39);
             this.comboBoxArbeitsspeicher.Name = "comboBoxArbeitsspeicher";
             this.comboBoxArbeitsspeicher.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxArbeitsspeicher.TabIndex = 5;
+            this.comboBoxArbeitsspeicher.TabIndex = 6;
             // 
             // comboBoxbetriebssystemPC
             // 
@@ -324,7 +324,7 @@
             this.comboBoxbetriebssystemPC.Location = new System.Drawing.Point(116, 4);
             this.comboBoxbetriebssystemPC.Name = "comboBoxbetriebssystemPC";
             this.comboBoxbetriebssystemPC.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxbetriebssystemPC.TabIndex = 4;
+            this.comboBoxbetriebssystemPC.TabIndex = 5;
             // 
             // comboBoxHDD
             // 
@@ -466,7 +466,7 @@
             this.textBoxSeriennummerMobil.Location = new System.Drawing.Point(116, 3);
             this.textBoxSeriennummerMobil.Name = "textBoxSeriennummerMobil";
             this.textBoxSeriennummerMobil.Size = new System.Drawing.Size(217, 20);
-            this.textBoxSeriennummerMobil.TabIndex = 4;
+            this.textBoxSeriennummerMobil.TabIndex = 5;
             // 
             // label10
             // 
@@ -502,7 +502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 582);
+            this.ClientSize = new System.Drawing.Size(861, 581);
             this.Controls.Add(this.panelMobil);
             this.Controls.Add(this.panelPC);
             this.Controls.Add(this.comboBoxMitarbeiterID);

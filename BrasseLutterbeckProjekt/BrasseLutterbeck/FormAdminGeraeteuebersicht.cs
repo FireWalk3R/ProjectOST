@@ -27,13 +27,12 @@ namespace BrasseLutterbeck
         public void Start()
         {
             string queryAnzeigen =
-                "SELECT ge.GERAETEID, ma.MVORNAME, ma.MNACHNAME, ge.GERAETEART, ge.BEZEICHNUNG, ge.BETRIEBSSYSTEM, ge.SERIENNUMMER, pr.PROZESSORBEZEICHNUNG, pr.TAKTFREQUENZ, ge.RAM "+
-                "FROM MITARBEITER ma, GERAETE ge, MITARBEITERGERAETE mg, PROZESSOREN pr "+
-                "WHERE ma.MFIRMAID='" + FIID + "' " +
-                "AND ma.MITARBEITERID = mg.MGMITARBEITERID " +
-                "AND mg.MGGERAETEID = ge.GERAETEID " +
-                "AND ge.PROZESSORID = pr.PROZESSORID" +
-                ";";
+                "SELECT ge.GERAETEID, ma.MVORNAME, ma.MNACHNAME, ge.GERAETEART, ge.BEZEICHNUNG, ge.BETRIEBSSYSTEM, ge.SERIENNUMMER, pr.PROZESSORBEZEICHNUNG, pr.TAKTFREQUENZ, ge.RAM " +
+                "FROM MITARBEITER ma, GERAETE ge, MITARBEITERGERAETE mg, PROZESSOREN pr " +
+                "WHERE ge.GERAETEID = mg.MGGERAETEID " +
+                "AND mg.MGMITARBEITERID = ma.MITARBEITERID " +
+                "AND pr.PROZESSORID = ge.PROZESSORID " +
+                "AND ma.MFIRMAID = '" + FIID + "';";
 
             try
             {
@@ -46,7 +45,7 @@ namespace BrasseLutterbeck
 
                 dataGridViewGeraete.DataSource = dtAnzeigen;
             }
-            catch (Exception ex)
+            catch (OleDbException ex)
             {
                 MessageBox.Show(ex.Message);
             }
