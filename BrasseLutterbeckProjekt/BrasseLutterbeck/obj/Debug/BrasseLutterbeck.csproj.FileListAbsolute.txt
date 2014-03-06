@@ -169,3 +169,4 @@ C:\Users\Thorsten\Documents\GitHub\ProjectOST\BrasseLutterbeckProjekt\BrasseLutt
 C:\Users\Thorsten\Documents\GitHub\ProjectOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\Debug\BrasseLutterbeck.FormClientNeuesTicket.resources
 C:\Users\Thorsten\Documents\GitHub\ProjectOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\Debug\BrasseLutterbeck.Properties.Resources.resources
 C:\Users\Thorsten\Documents\GitHub\ProjectOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\Debug\BrasseLutterbeck.csproj.GenerateResource.Cache
+C:\Users\Thorsten\Documents\GitHub\ProjectOST\BrasseLutterbeckProjekt\BrasseLutterbeck\obj\Debug\BrasseLutterbeck.FormGespraechsuebersicht.resources

@@ -86,6 +86,11 @@ namespace BrasseLutterbeck
             textBoxBezeichnung.Enabled = true;
             comboBoxArt.Enabled = true;
             comboBoxArt.Items.Clear();
+            comboBoxArbeitsspeicher.Items.Clear();
+            comboBoxGrafik.Items.Clear();
+            comboBoxHDD.Items.Clear();
+            comboBoxProzessor.Items.Clear();
+
             try
             {
                 if (Con != null)
@@ -93,7 +98,7 @@ namespace BrasseLutterbeck
                     Con.Open();
                 }
 
-                string queryKataloge = "SELECT ga.* FROM GERAETART ga ";
+                string queryKataloge = "SELECT ga.* FROM GERAETEART ga ";
                 DataTable dtKataloge = new DataTable();
                 OleDbDataAdapter daKataloge = new OleDbDataAdapter(queryKataloge, Con);
 

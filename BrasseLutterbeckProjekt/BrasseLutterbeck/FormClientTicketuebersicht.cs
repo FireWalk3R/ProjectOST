@@ -66,7 +66,15 @@ namespace BrasseLutterbeck
 
         private void buttonGespraechsuebersicht_Click(object sender, EventArgs e)
         {
+            string ticketID = dataGridViewTickets[0, dataGridViewTickets.SelectedCells[0].RowIndex].Value.ToString();
 
+            if (Con != null)
+            {
+                Con.Close();
+            }
+
+            FormGespraechsuebersicht fGU = new FormGespraechsuebersicht(ticketID, MAID, Con);
+            fGU.Show();
         }
 
         private void übersichtToolStripMenuItem_Click(object sender, EventArgs e)

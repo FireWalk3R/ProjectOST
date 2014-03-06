@@ -71,7 +71,6 @@
             // 
             this.buttonGespraechsuebersicht.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonGespraechsuebersicht.BackColor = System.Drawing.Color.DarkGray;
-            this.buttonGespraechsuebersicht.Enabled = false;
             this.buttonGespraechsuebersicht.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGespraechsuebersicht.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGespraechsuebersicht.Location = new System.Drawing.Point(707, 520);
@@ -206,7 +205,7 @@
             // übersichtToolStripMenuItem
             // 
             this.übersichtToolStripMenuItem.Name = "übersichtToolStripMenuItem";
-            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.übersichtToolStripMenuItem.Text = "Übersicht";
             this.übersichtToolStripMenuItem.Click += new System.EventHandler(this.übersichtToolStripMenuItem_Click);
             // 
