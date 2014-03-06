@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace BrasseLutterbeck
 {
@@ -16,11 +10,13 @@ namespace BrasseLutterbeck
         OleDbConnection Con;
         public string MAID, FIID;
         string Passwort = "";
+
         public FormAdminEinstellungen()
         {
             InitializeComponent();
             Start();
         }
+
         public FormAdminEinstellungen(OleDbConnection con, string maID, string fiID)
         {
             InitializeComponent();
@@ -31,8 +27,6 @@ namespace BrasseLutterbeck
         }
         public void Start()
         {
-
-
             try
             {
                 string queryAnzeigen = "SELECT * FROM  MITARBEITER ma WHERE ma.MFIRMAID ='" + FIID + "' AND ma.MITARBEITERID ='" + MAID + "';";
@@ -89,7 +83,6 @@ namespace BrasseLutterbeck
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
@@ -102,9 +95,7 @@ namespace BrasseLutterbeck
         {
             try
             {
-
                 Con.Open();
-
 
                 if (textBoxKennwortAlt.Text != null && textBoxKennwortNeu1.Text != null && textBoxKennwortNeu2.Text != null && textBoxKennwortAlt.Text != "" && textBoxKennwortNeu1.Text != "" && textBoxKennwortNeu2.Text != "")
                 {
@@ -135,23 +126,17 @@ namespace BrasseLutterbeck
                 }
                 else
                 {
-                    
                     EinstellungenAendern();
-                    
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
             {
                 Con.Close();
             }
-
-
-
         }
 
         public void EinstellungenAendern()
@@ -171,8 +156,6 @@ namespace BrasseLutterbeck
 
             }
 
-
-
             string queryMitarbeiter = "UPDATE MITARBEITER SET MVORNAME=@MVORNAME,MNACHNAME=@MNACHNAME,MRAUMNR=@MRAUMNR,MTELNR=@MTELNR,MKENNWORT=@MKENNWORT,MRANG=@MRANG,MEMAIL=@MEMAIL WHERE MITARBEITERID ='" + MAID + "'";
             OleDbCommand cmdInsM = new OleDbCommand(queryMitarbeiter, Con);
             cmdInsM.Parameters.AddWithValue("@MVORNAME", textBoxMVName.Text);
@@ -183,22 +166,13 @@ namespace BrasseLutterbeck
             cmdInsM.Parameters.AddWithValue("@MRANG", comboBoxRang.Text);
             cmdInsM.Parameters.AddWithValue("@MEMAIL", textBoxEmail.Text);
 
-
             cmdInsM.ExecuteNonQuery();
             cmdInsM.Dispose();
             cmdInsM = null;
 
             MessageBox.Show("Der Account wurde erfolgreich bearbeitet!");
 
-
-
             this.Close();
         }
     }
-
-
-
-
 }
-
-

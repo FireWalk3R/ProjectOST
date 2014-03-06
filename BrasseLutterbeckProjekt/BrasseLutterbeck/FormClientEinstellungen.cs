@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.OleDb;
-using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace BrasseLutterbeck
 {
@@ -17,6 +10,7 @@ namespace BrasseLutterbeck
         OleDbConnection Con;
         string MAID, FIID;
         string Passwort = "";
+
         public FormClientEinstellungen(OleDbConnection con, string maID, string fiID)
         {
             InitializeComponent();
@@ -98,7 +92,6 @@ namespace BrasseLutterbeck
                                 Passwort = textBoxKennwortNeu1.Text;
                                 EinstellungenAendern();
                             }
-
                             else
                             {
                                 MessageBox.Show("Das Passwort muss mindestens 4 oder mehr Zeichen enthalten");
@@ -143,7 +136,6 @@ namespace BrasseLutterbeck
             }
             catch
             {
-
             }
 
             string queryMitarbeiter = "UPDATE MITARBEITER SET MVORNAME=@MVORNAME,MNACHNAME=@MNACHNAME,MRAUMNR=@MRAUMNR,MTELNR=@MTELNR,MKENNWORT=@MKENNWORT,MRANG=@MRANG,MEMAIL=@MEMAIL WHERE MITARBEITERID ='" + MAID + "'";

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace BrasseLutterbeck
 {
@@ -16,17 +10,19 @@ namespace BrasseLutterbeck
         OleDbConnection Con;
         string MAID, FIID;
         string selectedTicketID;
+
         public FormAdminTicketuebersicht()
         {
             InitializeComponent();
         }
+
         public FormAdminTicketuebersicht(OleDbConnection con, string maID, string fiID)
         {
             InitializeComponent();
             Con = con;
             MAID = maID;
             FIID = fiID;
-            buttonAnzeigen_Click(this,new EventArgs());
+            buttonAnzeigen_Click(this, new EventArgs());
         }
 
         private void buttonAnzeigen_Click(object sender, EventArgs e)
@@ -70,7 +66,7 @@ namespace BrasseLutterbeck
             string Suchen = textBoxTicketSuchen.Text.ToString();
             string querySuchen = "SELECT ti.TICKETID, ti.PRIORITAET, ti.TICKETSTATUS as STATUS, ti.BETREFFKATEGORIE as KATEGORIE, ti.BETREFFZEILE, ma.MVORNAME as VORNAME," +
             "ma.MNACHNAME as NACHNAME, ti.ERSTELLDATUM FROM TICKET ti, MITARBEITER ma " +
-            "WHERE ti.MITARBEITERID = ma.MITARBEITERID AND ti.FIRMAID ='" + FIID + "' AND ti.TICKETID LIKE '%"+Suchen+"%' ;";
+            "WHERE ti.MITARBEITERID = ma.MITARBEITERID AND ti.FIRMAID ='" + FIID + "' AND ti.TICKETID LIKE '%" + Suchen + "%' ;";
             try
             {
                 Con.Open();
@@ -97,6 +93,7 @@ namespace BrasseLutterbeck
                 Con.Close();
             }
         }
+
         private void ResizeColumns()
         {
             for (int i = 0; i < dataGridViewTickets.ColumnCount - 1; i++)
@@ -105,29 +102,27 @@ namespace BrasseLutterbeck
             }
         }
 
-
         private void dataGridViewTickets_SelectionChanged(object sender, EventArgs e)
         {
             ResizeColumns();
             if (dataGridViewTickets.SelectedCells.Count > 0)
             {
                 buttonTicketSchliessen.Enabled = true;
-                
+
                 int selectedrowindex = dataGridViewTickets.SelectedCells[0].RowIndex;
 
                 DataGridViewRow selectedRow = dataGridViewTickets.Rows[selectedrowindex];
                 selectedTicketID = Convert.ToString(selectedRow.Cells[0].Value);
-
-                }
+            }
         }
 
         private void buttonTicketSchliessen_Click(object sender, EventArgs e)
         {
-            string querySchliessen = "UPDATE TICKET ti SET ti.TICKETSTATUS = 'Geschlossen', ti.BEARBEITERID ='"+MAID+"' WHERE ti.TICKETID ='"+selectedTicketID+"';";
+            string querySchliessen = "UPDATE TICKET ti SET ti.TICKETSTATUS = 'Geschlossen', ti.BEARBEITERID ='" + MAID + "' WHERE ti.TICKETID ='" + selectedTicketID + "';";
             string queryAnzeigen = "SELECT ti.TICKETID, ti.PRIORITAET, ti.TICKETSTATUS as STATUS, ti.BETREFFKATEGORIE as KATEGORIE, ti.BETREFFZEILE, ma.MVORNAME as VORNAME," +
             "ma.MNACHNAME as NACHNAME, ti.ERSTELLDATUM FROM TICKET ti, MITARBEITER ma " +
             "WHERE ti.MITARBEITERID = ma.MITARBEITERID AND ti.FIRMAID ='" + FIID + "';";
-            
+
             try
             {
                 Con.Open();
@@ -173,7 +168,7 @@ namespace BrasseLutterbeck
                 Con.Close();
             }
 
-            FormAdminTicketuebersicht fAT = new FormAdminTicketuebersicht(Con,MAID,FIID);
+            FormAdminTicketuebersicht fAT = new FormAdminTicketuebersicht(Con, MAID, FIID);
             fAT.Show();
         }
 

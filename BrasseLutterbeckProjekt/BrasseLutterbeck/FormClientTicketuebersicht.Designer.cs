@@ -74,14 +74,14 @@
             // 
             this.übersichtToolStripMenuItem.Enabled = false;
             this.übersichtToolStripMenuItem.Name = "übersichtToolStripMenuItem";
-            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.übersichtToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.übersichtToolStripMenuItem.Text = "Übersicht";
             this.übersichtToolStripMenuItem.Click += new System.EventHandler(this.übersichtToolStripMenuItem_Click);
             // 
             // neuesTicketToolStripMenuItem
             // 
             this.neuesTicketToolStripMenuItem.Name = "neuesTicketToolStripMenuItem";
-            this.neuesTicketToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuesTicketToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.neuesTicketToolStripMenuItem.Text = "Neues Ticket";
             this.neuesTicketToolStripMenuItem.Click += new System.EventHandler(this.neuesTicketToolStripMenuItem_Click);
             // 
@@ -117,13 +117,15 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(307, 24);
+            this.label1.Location = new System.Drawing.Point(297, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(251, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "IT-Support Client";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -199,13 +201,15 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(325, 57);
+            this.label4.Location = new System.Drawing.Point(316, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(203, 25);
             this.label4.TabIndex = 11;
             this.label4.Text = "- Ticketübersicht -";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonGespraechsuebersicht
             // 

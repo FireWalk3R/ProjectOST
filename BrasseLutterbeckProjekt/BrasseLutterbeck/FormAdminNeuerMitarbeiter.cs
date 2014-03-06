@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.OleDb;
-using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace BrasseLutterbeck
 {
@@ -52,7 +45,6 @@ namespace BrasseLutterbeck
                         if (row["RAUM"] != null || (!row["RAUM"].Equals("")))
                         {
                             comboBoxRaumNr.Items.Add(row["RAUM"]);
-
                         }
                     }
                 }
@@ -72,6 +64,7 @@ namespace BrasseLutterbeck
                         }
                     }
                 }
+
                 comboBoxRang.SelectedIndex = 0;
                 comboBoxRaumNr.SelectedIndex = 0;
             }
@@ -128,14 +121,11 @@ namespace BrasseLutterbeck
                         cmdInsM.Parameters.AddWithValue("@MRANG", comboBoxRang.Text);
                         cmdInsM.Parameters.AddWithValue("@MEMAIL", textBoxEmail.Text);
 
-
                         cmdInsM.ExecuteNonQuery();
                         cmdInsM.Dispose();
                         cmdInsM = null;
 
                         MessageBox.Show("Der Account wurde erfolgreich angelegt:\r\nMitarbeiterID:\t" + "MA" + MitarbeiterID.ToString().PadLeft(8, '0') + "");
-
-
                     }
                     else
                     {

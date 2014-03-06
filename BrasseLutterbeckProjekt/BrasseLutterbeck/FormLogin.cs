@@ -64,7 +64,7 @@ namespace BrasseLutterbeck
                         {
                             Con.Close();
                             FormAdminTicketuebersicht fAT = new FormAdminTicketuebersicht(Con, MAID, FAID);
-                            
+
                             fAT.Show();
                         }
 
@@ -72,7 +72,7 @@ namespace BrasseLutterbeck
                         {
                             Con.Close();
                             FormClientTicketuebersicht fCT = new FormClientTicketuebersicht(Con, MAID, FAID);
-                            
+
                             fCT.Show();
                         }
                     }
